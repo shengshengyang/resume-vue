@@ -11,7 +11,7 @@ const { resumeData } = useLanguage();
         <div class="project-image">
           <img :src="project.image" :alt="project.title" />
           <div class="overlay">
-            <a :href="project.link" class="view-btn">{{ resumeData.portfolio.view_btn }}</a>
+            <a :href="project.link" target="_blank" rel="noopener noreferrer" class="view-btn">{{ resumeData.portfolio.view_btn }}</a>
           </div>
         </div>
         <div class="project-content">
@@ -80,12 +80,10 @@ const { resumeData } = useLanguage();
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-  filter: grayscale(100%);
 }
 
 .project-card:hover .project-image img {
   transform: scale(1.05);
-  filter: grayscale(0%);
 }
 
 .overlay {
@@ -155,11 +153,11 @@ p {
 }
 
 .tag {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--color-text-light);
+  background-color: var(--color-background-mute);
+  color: var(--color-text);
   font-size: 0.75rem;
   padding: 0.4rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 2px;

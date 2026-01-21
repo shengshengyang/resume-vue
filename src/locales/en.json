@@ -7,78 +7,123 @@
   },
   "profile": {
     "name": "Dean Yang",
-    "role": "Senior Software Engineer",
-    "bio": "Passionate software engineer with over 5 years of experience in building scalable web applications and solving complex problems. Dedicated to clean code, performance optimization, and user-centric design.",
-    "location": "Taipei, Taiwan",
+    "role": "Innovative Full Stack Engineer",
+    "bio": "Experienced Full Stack Engineer with a strong focus on backend development and cloud-native architecture. Transitioning from a successful career in physical therapy, I combine empathy and analytical skills to drive innovation. Notable achievements include leading a migration from Node.js to Java that boosted performance by over 30%, and developing enterprise-level systems using Docker, AWS, and CI/CD pipelines. Passionate about building products that meet international standards and enhance user experience.",
+    "location": "Taichung, Taiwan",
     "cta_primary": "View My Work",
     "cta_secondary": "My Experience",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen"
   },
   "experience": {
     "title": "Work Experience",
     "items": [
       {
         "id": 1,
-        "role": "Senior Frontend Developer",
-        "company": "Tech Solutions Inc.",
-        "period": "2023 - Present",
-        "description": "Leading the frontend team in migrating legacy systems to Vue 3. Improved site performance by 40% and established a new design system."
+        "role": "Senior Software Engineer",
+        "company": "Athena Information Systems",
+        "period": "2025 - Present",
+        "description": "Key contributor in transforming our Restaurant Management System by migrating from Node.js to Java, resulting in a performance boost of over 30% and significant reductions in latency and downtime. Spearheaded migration to Java, improving system performance by over 30%. Developed a cloud-based reservation system using Spring Boot and PostgresSQL, increasing booking efficiency by 35%.",
+        "projects": [
+          {
+            "name": "Core System Migration",
+            "description": "Led the migration from Node.js to Java Spring Boot, refactoring monolith to microservices architecture, significantly improving system stability.",
+            "tech": "Java, Spring Boot, Docker",
+            "link": "#"
+          },
+          {
+            "name": "Cloud Reservation API",
+            "description": "Designed and implemented high-concurrency booking APIs supporting multi-store and real-time inventory deduction.",
+            "tech": "PostgreSQL, Redis, Kafka",
+            "link": "#"
+          }
+        ]
       },
       {
         "id": 2,
-        "role": "Full Stack Engineer",
-        "company": "Innovate Startups",
-        "period": "2020 - 2023",
-        "description": "Developed and maintained multiple client-facing applications using Node.js and React. Collaborated closely with product managers to deliver features on time."
+        "role": "Full Stack Developer",
+        "company": "Da Fon Environmental Technology",
+        "period": "2022 - 2024",
+        "description": "Progressed from a junior role to a full stack developer, delivering a comprehensive recycling car tracking system. Developed an end-to-end tracking system using Spring Boot and Android for real-time logistics insights. Instituted streamlined workflows that enhanced team productivity and code quality."
+      },
+      {
+        "id": 3,
+        "role": "Physical Therapist",
+        "company": "Hospital - Personal Clinic",
+        "period": "2016 - 2021",
+        "description": "Delivered personalized physical therapy sessions and successfully negotiated business collaborations, showcasing strong communication and client relationship skills."
       }
     ]
   },
   "skills": {
-    "title": "Technical Skills",
+    "title": "Skills",
     "items": [
-      "JavaScript (ES6+)",
-      "Vue.js 3",
-      "React",
-      "Node.js",
-      "TypeScript",
-      "HTML5/CSS3",
-      "Tailwind CSS",
-      "Git",
+      "Java",
+      "Spring",
       "Docker",
-      "AWS"
+      "PostgresSQL",
+      "MySQL",
+      "Oracle",
+      "AWS",
+      "GCP",
+      "Kubernetes",
+      "GitLab",
+      "Vue.js",
+      "Android"
+    ],
+    "certifications_title": "Certifications",
+    "certifications": [
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "issuer": "Amazon Web Services Training and Certification",
+        "image": "https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+        "link": "https://www.credly.com/badges/a21aff66-1b1e-413d-842a-776b7d21bcfc/public_url"
+      },
+      {
+        "name": "AWS Certified Developer - Associate",
+        "issuer": "Amazon Web Services Training and Certification",
+        "image": "https://images.credly.com/size/220x220/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+        "link": "https://www.credly.com/badges/8948c2b0-cb19-4d7c-9d7e-46d83bee1c1c/public_url"
+      },
+      {
+        "name": "AWS Certified AI Practitioner Early Adopter",
+        "issuer": "Amazon Web Services Training and Certification",
+        "image": "https://images.credly.com/size/220x220/images/834f2c8d-2d2c-4ce7-9580-02a351c31626/image.png",
+        "link": "https://www.credly.com/badges/82b05cf2-17b3-47cb-a244-11ba3f7000a7/public_url"
+      }
     ]
   },
   "portfolio": {
-    "title": "Featured Projects",
+    "title": "Side Projects",
     "view_btn": "View Project",
     "items": [
       {
         "id": 1,
-        "title": "E-Commerce Dashboard",
-        "description": "A comprehensive dashboard for managing online store inventory and sales analytics.",
-        "technologies": ["Vue 3", "Pinia", "Chart.js"],
-        "image": "https://via.placeholder.com/600x400?text=E-Commerce+Dashboard",
-        "link": "#"
+        "title": "baby-development-frontend",
+        "description": "Engineered an intuitive frontend interface for the baby development app, ensuring responsive design and seamless user experience.",
+        "technologies": ["Vue", "Vite", "Typescript", "Quasar"],
+        "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
+        "link": "https://baby.deanyang.it.com/"
       },
       {
         "id": 2,
-        "title": "Task Management App",
-        "description": "A real-time collaborative task manager allowing teams to organize workflows efficiently.",
-        "technologies": ["React", "Firebase", "Material UI"],
-        "image": "https://via.placeholder.com/600x400?text=Task+Manager",
+        "title": "baby-development-backend",
+        "description": "Developed robust backend APIs for a baby development tracking app, featuring user management, milestone tracking, and dynamic report generation.",
+        "technologies": ["Java", "Spring Boot", "MySQL", "Docker"],
+        "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
         "link": "#"
       },
       {
         "id": 3,
-        "title": "Weather Forecast API",
-        "description": "A high-performance RESTful API that aggregates weather data from multiple sources.",
-        "technologies": ["Node.js", "Express", "Redis"],
-        "image": "https://via.placeholder.com/600x400?text=Weather+API",
+        "title": "Clock In Project",
+        "description": "Built a real-time clock-in tracking system leveraging Kafka for data processing, delivering scalable and reliable work time management.",
+        "technologies": ["Java", "Spring", "Kafka"],
+        "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
         "link": "#"
       }
     ]
   },
   "footer": {
-    "copyright": "© 2026 Alex Dev. All rights reserved."
+    "copyright": "© 2026 Dean Yang. All rights reserved."
   }
 }

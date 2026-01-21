@@ -7,45 +7,90 @@
   },
   "profile": {
     "name": "楊 竣盛",
-    "role": "資深軟體工程師",
-    "bio": "擁有超過 5 年經驗的熱情軟體工程師，專注於建構可擴展的 Web 應用程式並解決複雜問題。致力於整潔代碼、效能優化和以使用者為中心的設計。",
-    "location": "台北, 台灣",
+    "role": "創新全端工程師",
+    "bio": "經驗豐富的全端工程師，專注於後端開發與雲端原生架構。從物理治療師成功轉職，我結合了同理心與分析能力來推動創新。顯著成就包括主導從 Node.js 遷移至 Java 的專案，提升了 30% 以上的效能，並使用 Docker、AWS 和 CI/CD 流程開發企業級系統。熱衷於構建符合國際標準並提升使用者體驗的產品。",
+    "location": "台中, 台灣",
     "cta_primary": "查看作品",
     "cta_secondary": "工作經歷",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen"
   },
   "experience": {
     "title": "工作經歷",
     "items": [
       {
         "id": 1,
-        "role": "資深前端開發",
-        "company": "科技解決方案股份有限公司",
-        "period": "2023 - 至今",
-        "description": "帶領前端團隊將舊系統遷移至 Vue 3。提升網站效能 40% 並建立全新的設計系統。"
+        "role": "資深軟體工程師",
+        "company": "雅典娜資訊系統 (Athena Information Systems)",
+        "period": "2025 - 至今",
+        "description": "將餐廳管理系統從 Node.js 遷移至 Java 的核心貢獻者，效能提升超過 30%，並顯著降低延遲與停機時間。主導 Java 遷移專案，提升系統效能逾 30%。使用 Spring Boot 和 PostgresSQL 開發雲端訂位系統，提升訂位效率 35%。",
+        "projects": [
+          {
+            "name": "核心系統遷移",
+            "description": "主導從 Node.js 轉移至 Java Spring Boot 的遷移工程，重構單體架構為微服務，顯著提升系統穩定性。",
+            "tech": "Java, Spring Boot, Docker",
+            "link": "#"
+          },
+          {
+            "name": "雲端訂位 API",
+            "description": "設計並實作高併發訂位 API，支援多店鋪與即時庫存扣除。",
+            "tech": "PostgreSQL, Redis, Kafka",
+            "link": "#"
+          }
+        ]
       },
       {
         "id": 2,
-        "role": "全端工程師",
-        "company": "創新新創",
-        "period": "2020 - 2023",
-        "description": "使用 Node.js 和 React 開發並維護多個客戶端應用程式。與產品經理密切合作，準時交付功能。"
+        "role": "全端開發工程師",
+        "company": "大豐環保科技 (Da Fon Environmental Technology)",
+        "period": "2022 - 2024",
+        "description": "從初階角色晉升為全端開發者，交付了完整的回收車追蹤系統。使用 Spring Boot 和 Android 開發端對端追蹤系統，提供即時物流洞察。建立簡化工作流程，提升團隊生產力與程式碼品質。"
+      },
+      {
+        "id": 3,
+        "role": "物理治療師",
+        "company": "醫療院所與個人工作室",
+        "period": "2016 - 2021",
+        "description": "提供客製化物理治療課程，並成功洽談商業合作，展現強大的溝通與客戶關係能力。"
       }
     ]
   },
   "skills": {
     "title": "專業技能",
     "items": [
-      "JavaScript (ES6+)",
-      "Vue.js 3",
-      "React",
-      "Node.js",
-      "TypeScript",
-      "HTML5/CSS3",
-      "Tailwind CSS",
-      "Git",
+      "Java",
+      "Spring",
       "Docker",
-      "AWS"
+      "PostgresSQL",
+      "MySQL",
+      "Oracle",
+      "AWS",
+      "GCP",
+      "Kubernetes",
+      "GitLab",
+      "Vue.js",
+      "Android"
+    ],
+    "certifications_title": "專業證照",
+    "certifications": [
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "issuer": "Amazon Web Services",
+        "image": "https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+        "link": "https://www.credly.com/badges/a21aff66-1b1e-413d-842a-776b7d21bcfc/public_url"
+      },
+      {
+        "name": "AWS Certified Developer - Associate",
+        "issuer": "Amazon Web Services",
+        "image": "https://images.credly.com/size/220x220/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+        "link": "https://www.credly.com/badges/8948c2b0-cb19-4d7c-9d7e-46d83bee1c1c/public_url"
+      },
+      {
+        "name": "AWS Certified AI Practitioner Early Adopter",
+        "issuer": "Amazon Web Services",
+        "image": "https://images.credly.com/size/220x220/images/834f2c8d-2d2c-4ce7-9580-02a351c31626/image.png",
+        "link": "https://www.credly.com/badges/82b05cf2-17b3-47cb-a244-11ba3f7000a7/public_url"
+      }
     ]
   },
   "portfolio": {
@@ -54,31 +99,31 @@
     "items": [
       {
         "id": 1,
-        "title": "電子商務儀表板",
-        "description": "用於管理線上商店庫存和銷售分析的綜合儀表板。",
-        "technologies": ["Vue 3", "Pinia", "Chart.js"],
-        "image": "https://via.placeholder.com/600x400?text=E-Commerce+Dashboard",
-        "link": "#"
+        "title": "嬰兒發展追蹤 - 前端",
+        "description": "為嬰兒發展應用程式打造直觀的前端介面，確保響應式設計與流暢的使用者體驗。",
+        "technologies": ["Vue", "Vite", "Typescript", "Quasar"],
+        "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
+        "link": "https://baby.deanyang.it.com/"
       },
       {
         "id": 2,
-        "title": "任務管理應用",
-        "description": "即時協作的任務管理器，讓團隊能有效組織工作流程。",
-        "technologies": ["React", "Firebase", "Material UI"],
-        "image": "https://via.placeholder.com/600x400?text=Task+Manager",
+        "title": "嬰兒發展追蹤 - 後端",
+        "description": "開發穩健的後端 API 用於嬰兒發展追蹤應用，功能包含使用者管理、里程碑追蹤與動態報告生成。",
+        "technologies": ["Java", "Spring Boot", "MySQL", "Docker"],
+        "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
         "link": "#"
       },
       {
         "id": 3,
-        "title": "天氣預報 API",
-        "description": "從多個來源聚合天氣數據的高效能 RESTful API。",
-        "technologies": ["Node.js", "Express", "Redis"],
-        "image": "https://via.placeholder.com/600x400?text=Weather+API",
+        "title": "即時打卡系統",
+        "description": "利用 Kafka 進行資料處理，建構即時打卡追蹤系統，提供可擴展且可靠的工時管理。",
+        "technologies": ["Java", "Spring", "Kafka"],
+        "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
         "link": "#"
       }
     ]
   },
   "footer": {
-    "copyright": "© 2026 Alex Dev. 版權所有。"
+    "copyright": "© 2026 Dean Yang. 版權所有。"
   }
 }

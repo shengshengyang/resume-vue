@@ -1,10 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useLanguage } from '../composables/useLanguage';
 
 const { resumeData, toggleLanguage, currentLang } = useLanguage();
 
 const isDark = ref(true);
+const isNavbarHidden = ref(false);
+const lastScrollPosition = ref(0);
 
 const toggleTheme = () => {
   isDark.value = !isDark.value;
@@ -13,17 +15,40 @@ const toggleTheme = () => {
   localStorage.setItem('theme', theme);
 };
 
+const handleScroll = () => {
+  const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
+  
+  if (currentScrollPosition < 0) {
+    return;
+  }
+  
+  // Hide if scrolling down and not at top
+  if (Math.abs(currentScrollPosition - lastScrollPosition.value) < 10) {
+    return;
+  }
+  
+  isNavbarHidden.value = currentScrollPosition > lastScrollPosition.value && currentScrollPosition > 50;
+  lastScrollPosition.value = currentScrollPosition;
+};
+
 onMounted(() => {
   const savedTheme = localStorage.getItem('theme') || 'dark';
   isDark.value = savedTheme === 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="{ 'navbar--hidden': isNavbarHidden }">
     <div class="container">
-      <a href="#" class="logo">{{ resumeData.profile.name }}</a>
+      <!-- Logo removed as requested -->
+      <div class="nav-placeholder"></div>
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="#about">{{ resumeData.nav.about }}</a></li>
@@ -54,7 +79,11 @@ onMounted(() => {
   z-index: 1000;
   border-bottom: var(--glass-border);
   padding: 1rem 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }
 
 .container {
@@ -70,6 +99,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-left: auto; /* Push to right since logo is gone */
 }
 
 /* Toggle Button */
@@ -105,20 +135,6 @@ onMounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--primary-color);
   transform: rotate(15deg);
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-heading);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  transition: text-shadow 0.3s ease, color 0.3s ease;
-}
-
-.logo:hover {
-  text-shadow: 0 0 10px var(--primary-color);
 }
 
 .nav-links {

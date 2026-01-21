@@ -16,6 +16,20 @@ const { resumeData } = useLanguage();
           </div>
           <h4>{{ job.company }}</h4>
           <p>{{ job.description }}</p>
+          
+          <div v-if="job.projects && job.projects.length" class="experience-projects">
+            <div v-for="project in job.projects" :key="project.name" class="project-item">
+              <div class="project-header">
+                <span class="project-bullet">▹</span>
+                <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer" class="project-name link">
+                  {{ project.name }} <span class="link-icon">↗</span>
+                </a>
+                <span v-else class="project-name">{{ project.name }}</span>
+                <span v-if="project.tech" class="project-tech">({{ project.tech }})</span>
+              </div>
+              <div class="project-desc">{{ project.description }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -136,9 +150,69 @@ p {
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .timeline-item {
-    margin-bottom: 2rem;
-  }
+
+
+.experience-projects {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed rgba(66, 184, 131, 0.3);
+}
+
+.project-item {
+  margin-bottom: 1rem;
+}
+
+.project-item:last-child {
+  margin-bottom: 0;
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.project-bullet {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
+
+.project-name {
+  color: var(--color-heading);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.project-name.link {
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-color);
+  transition: all 0.2s;
+}
+
+.project-name.link:hover {
+  color: var(--primary-color);
+  border-bottom-style: solid;
+}
+
+.link-icon {
+  font-size: 0.8em;
+  margin-left: 2px;
+  vertical-align: top;
+}
+
+.project-tech {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.project-desc {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  padding-left: 1.2rem;
 }
 </style>
