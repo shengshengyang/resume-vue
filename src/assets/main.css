@@ -1,0 +1,31 @@
+@import './base.css';
+
+#app {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  background-color: var(--color-background);
+  /* Optional: subtle radial gradient to simulate "space" depth */
+  background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #000000 100%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-background-mute);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}

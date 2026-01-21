@@ -1,0 +1,74 @@
+/* Color Palette */
+:root {
+  /* SpaceX Theme Palette */
+  --primary-color: #00f3ff; /* Neon Cyan */
+  --primary-color-dark: #00c2cc;
+  --secondary-color: #ffffff;
+  
+  --color-background: #000000; /* Deep Space Black */
+  --color-background-soft: #0b0c15; /* Slightly lighter black for cards */
+  --color-background-mute: #1c1c2e;
+  
+  --color-border: #33334d;
+  --color-border-hover: #00f3ff;
+  
+  --color-heading: #ffffff;
+  --color-text: #e0e0e0;
+  --color-text-light: #a0a0b0;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  
+  --glass-bg: rgba(11, 12, 21, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --neon-glow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
