@@ -14,7 +14,14 @@ const { resumeData } = useLanguage();
             <h3>{{ job.role }}</h3>
             <span class="period">{{ job.period }}</span>
           </div>
-          <h4>{{ job.company }}</h4>
+          <div class="company-header">
+            <template v-if="job.link">
+              <a :href="job.link" target="_blank" rel="noopener noreferrer" class="company-link">
+                <h4 class="company-name">{{ job.company }} <span class="external-icon">↗</span></h4>
+              </a>
+            </template>
+            <h4 v-else class="company-name">{{ job.company }}</h4>
+          </div>
           <p>{{ job.description }}</p>
           
           <div v-if="job.projects && job.projects.length" class="experience-projects">
@@ -214,5 +221,36 @@ p {
   line-height: 1.6;
   opacity: 0.9;
   padding-left: 1.2rem;
+}
+
+.company-header {
+  margin-bottom: 1rem; /* Adjust as needed */
+}
+
+.company-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.company-link .company-name {
+  transition: color 0.3s ease;
+}
+
+.company-link:hover .company-name {
+  color: var(--primary-color);
+}
+
+.external-icon {
+  font-size: 0.8em;
+  margin-left: 0.5rem;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.company-link:hover .external-icon {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 </style>

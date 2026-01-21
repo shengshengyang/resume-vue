@@ -55,6 +55,18 @@ onUnmounted(() => {
           <li><a href="#experience">{{ resumeData.nav.experience }}</a></li>
           <li><a href="#skills">{{ resumeData.nav.skills }}</a></li>
           <li><a href="#portfolio">{{ resumeData.nav.portfolio }}</a></li>
+          <li class="dropdown">
+            <button class="dropdown-trigger">
+              {{ resumeData.nav.links }} ▾
+            </button>
+            <ul class="dropdown-menu">
+              <li v-for="link in resumeData.social.items" :key="link.name">
+                <a :href="link.url" target="_blank" rel="noopener noreferrer">
+                  {{ link.name }} <span>↗</span>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
         <button @click="toggleLanguage" class="lang-toggle">
           {{ currentLang === 'en' ? '中' : 'EN' }}
@@ -143,6 +155,7 @@ onUnmounted(() => {
   gap: 2rem;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -162,7 +175,7 @@ onUnmounted(() => {
   position: relative;
 }
 
-.nav-links a::after {
+.nav-links > li > a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -174,12 +187,97 @@ onUnmounted(() => {
   box-shadow: 0 0 5px var(--primary-color);
 }
 
-.nav-links a:hover {
+.nav-links > li > a:hover {
   color: var(--primary-color);
   text-shadow: 0 0 8px rgba(66, 184, 131, 0.5);
 }
 
-.nav-links a:hover::after {
+.nav-links > li > a:hover::after {
   width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.dropdown-trigger:hover {
+  color: var(--primary-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--card-bg-color, #1a1a1a); /* Fallback or variable */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+  text-transform: none; /* override uppercase from parent if needed */
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(66, 184, 131, 0.1);
+  color: var(--primary-color);
+  text-shadow: none; /* Reset shadow for dropdown items */
+}
+
+.dropdown-menu a span {
+  font-size: 0.8em;
+  opacity: 0.5;
+}
+
+
+.dropdown-menu a:hover span {
+  opacity: 1;
 }
 </style>

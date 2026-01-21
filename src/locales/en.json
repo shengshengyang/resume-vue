@@ -3,15 +3,16 @@
     "about": "About",
     "experience": "Experience",
     "skills": "Skills",
-    "portfolio": "Portfolio"
+    "portfolio": "Portfolio",
+    "links": "Links"
   },
   "profile": {
     "name": "Dean Yang",
-    "role": "Innovative Full Stack Engineer",
-    "bio": "Experienced Full Stack Engineer with a strong focus on backend development and cloud-native architecture. Transitioning from a successful career in physical therapy, I combine empathy and analytical skills to drive innovation. Notable achievements include leading a migration from Node.js to Java that boosted performance by over 30%, and developing enterprise-level systems using Docker, AWS, and CI/CD pipelines. Passionate about building products that meet international standards and enhance user experience.",
+    "role": "Full Stack Engineer",
+    "bio": "A Full Stack Engineer transitioning from the medical field to technology. Leveraging communication and problem-solving skills cultivated in the healthcare industry, applying them to software development while continuously learning new technologies. Currently focused on backend technologies and AI applications, documenting learning progress in a personal technical blog.",
     "location": "Taichung, Taiwan",
-    "cta_primary": "View My Work",
-    "cta_secondary": "My Experience",
+    "cta_primary": "View Portfolio",
+    "cta_secondary": "Work Experience",
     "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen"
   },
@@ -20,22 +21,29 @@
     "items": [
       {
         "id": 1,
-        "role": "Senior Software Engineer",
+        "role": "Senior Backend Engineer",
         "company": "Athena Information Systems",
+        "link": "https://www.athena.com.tw/",
         "period": "2025 - Present",
-        "description": "Key contributor in transforming our Restaurant Management System by migrating from Node.js to Java, resulting in a performance boost of over 30% and significant reductions in latency and downtime. Spearheaded migration to Java, improving system performance by over 30%. Developed a cloud-based reservation system using Spring Boot and PostgresSQL, increasing booking efficiency by 35%.",
+        "description": "Core member of the FBM Restaurant Management System development team. Led the architecture design and development of the cloud reservation system, significantly improving booking processing efficiency by 35%. Designed and implemented database transaction mechanisms to handle inventory deduction and potential overselling in high-concurrency scenarios, ensuring data consistency and system stability under load.",
         "projects": [
           {
-            "name": "Core System Migration",
-            "description": "Led the migration from Node.js to Java Spring Boot, refactoring monolith to microservices architecture, significantly improving system stability.",
-            "tech": "Java, Spring Boot, Docker",
-            "link": "#"
+            "name": "FBM Restaurant Management System",
+            "description": "Built a commercially launched reservation software from scratch. Designed and implemented high-concurrency booking APIs supporting multi-store operations and real-time inventory deduction. Participated in database schema design and query optimization, and introduced caching mechanisms to handle peak traffic, ensuring system stability and data consistency under high load.",
+            "tech": "PostgreSQL, Java, Spring Boot",
+            "link": ""
           },
           {
-            "name": "Cloud Reservation API",
-            "description": "Designed and implemented high-concurrency booking APIs supporting multi-store and real-time inventory deduction.",
-            "tech": "PostgreSQL, Redis, Kafka",
-            "link": "#"
+            "name": "QR Code Ordering System",
+            "description": "Assisted in maintaining existing projects, performing feature optimizations and bug fixes.",
+            "tech": "Java, Spring Boot, Docker",
+            "link": "https://gourmet.ec-hotel.net/#/ZZATHENA/CT/menu?order_type=FOR_HERE"
+          },
+          {
+            "name": "Self-Service Kiosk",
+            "description": "Assisted in maintaining existing projects, performing feature optimizations and bug fixes.",
+            "tech": "Java, Spring Boot, nginx, Docker",
+            "link": ""
           }
         ]
       },
@@ -43,13 +51,47 @@
         "id": 2,
         "role": "Full Stack Developer",
         "company": "Da Fon Environmental Technology",
+        "link": "https://www.df-recycle.com/",
         "period": "2022 - 2024",
-        "description": "Progressed from a junior role to a full stack developer, delivering a comprehensive recycling car tracking system. Developed an end-to-end tracking system using Spring Boot and Android for real-time logistics insights. Instituted streamlined workflows that enhanced team productivity and code quality."
+        "description": "Progressed from a junior role to a full stack developer, delivering a comprehensive recycling car tracking system. Developed an end-to-end tracking system using Spring Boot and Android for real-time logistics insights. Instituted streamlined workflows that enhanced team productivity and code quality.",
+        "projects": [
+          {
+            "name": "zCar Vehicle Management System",
+            "description": "Recycling truck tracking system. Developed an end-to-end tracking system using Java-based Android to provide real-time logistics insights.",
+            "tech": "Java, Android, Google Geolocation API",
+            "link": "https://play.google.com/store/apps/details?id=com.zcar.fe.zcar&hl=zh_TW"
+          },
+          {
+            "name": "zCar Management Dashboard",
+            "description": "Backend management system for zCar. Developed using Java Spring Framework to provide real-time logistics insights.",
+            "tech": "Java, Spring",
+            "link": ""
+          },
+          {
+            "name": "zero zero Web Portal",
+            "description": "Consumer-facing recycling website developed with React.js. Features recycling point redemption and voucher management.",
+            "tech": "React.js",
+            "link": "https://www.zerozero.com.tw"
+          },
+          {
+            "name": "zero zero Admin Dashboard",
+            "description": "Backend management system for zero zero. Developed using Java Spring Framework to provide real-time logistics insights.",
+            "tech": "Java, Spring",
+            "link": ""
+          },
+          {
+            "name": "zero zero App",
+            "description": "Resource recycling, garbage truck tracking, and Z-coin collection app. Developed the backend management system using Java Spring Framework.",
+            "tech": "Java, Android",
+            "link": "https://play.google.com/store/apps/details?id=com.zerozero.fe&hl=zh_TW"
+          }
+        ]
       },
       {
         "id": 3,
         "role": "Physical Therapist",
         "company": "Hospital - Personal Clinic",
+        "link": "",
         "period": "2016 - 2021",
         "description": "Delivered personalized physical therapy sessions and successfully negotiated business collaborations, showcasing strong communication and client relationship skills."
       }
@@ -75,48 +117,48 @@
     "certifications": [
       {
         "name": "AWS Certified Cloud Practitioner",
-        "issuer": "Amazon Web Services Training and Certification",
+        "issuer": "Amazon Web Services",
         "image": "https://images.credly.com/size/220x220/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
         "link": "https://www.credly.com/badges/a21aff66-1b1e-413d-842a-776b7d21bcfc/public_url"
       },
       {
         "name": "AWS Certified Developer - Associate",
-        "issuer": "Amazon Web Services Training and Certification",
+        "issuer": "Amazon Web Services",
         "image": "https://images.credly.com/size/220x220/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
         "link": "https://www.credly.com/badges/8948c2b0-cb19-4d7c-9d7e-46d83bee1c1c/public_url"
       },
       {
         "name": "AWS Certified AI Practitioner Early Adopter",
-        "issuer": "Amazon Web Services Training and Certification",
+        "issuer": "Amazon Web Services",
         "image": "https://images.credly.com/size/220x220/images/834f2c8d-2d2c-4ce7-9580-02a351c31626/image.png",
         "link": "https://www.credly.com/badges/82b05cf2-17b3-47cb-a244-11ba3f7000a7/public_url"
       }
     ]
   },
   "portfolio": {
-    "title": "Side Projects",
+    "title": "Selected Projects",
     "view_btn": "View Project",
     "items": [
       {
         "id": 1,
-        "title": "baby-development-frontend",
-        "description": "Engineered an intuitive frontend interface for the baby development app, ensuring responsive design and seamless user experience.",
+        "title": "Baby Development Tracker - Frontend",
+        "description": "Created an intuitive frontend interface for a baby development application, ensuring responsive design and a smooth user experience.",
         "technologies": ["Vue", "Vite", "Typescript", "Quasar"],
         "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
         "link": "https://baby.deanyang.it.com/"
       },
       {
         "id": 2,
-        "title": "baby-development-backend",
-        "description": "Developed robust backend APIs for a baby development tracking app, featuring user management, milestone tracking, and dynamic report generation.",
+        "title": "Baby Development Tracker - Backend",
+        "description": "Developed robust backend APIs for a baby development tracking application, featuring user management, milestone tracking, and dynamic report generation.",
         "technologies": ["Java", "Spring Boot", "MySQL", "Docker"],
         "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
         "link": "#"
       },
       {
         "id": 3,
-        "title": "Clock In Project",
-        "description": "Built a real-time clock-in tracking system leveraging Kafka for data processing, delivering scalable and reliable work time management.",
+        "title": "Real-time Clock-in System",
+        "description": "Built a real-time clock-in tracking system using Kafka for data processing, providing scalable and reliable working hours management.",
         "technologies": ["Java", "Spring", "Kafka"],
         "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
         "link": "#"
@@ -125,5 +167,29 @@
   },
   "footer": {
     "copyright": "© 2026 Dean Yang. All rights reserved."
+  },
+  "social": {
+    "items": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/shengshengyang",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dean-yang-888888/",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:sheng.sheng.yang.88@gmail.com",
+        "icon": "email"
+      },
+      {
+        "name": "Blog",
+        "url": "https://dean-yang.gitbook.io/my-learning-notes",
+        "icon": "website"
+      }
+    ]
   }
 }

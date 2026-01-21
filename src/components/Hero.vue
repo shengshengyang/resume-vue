@@ -1,63 +1,44 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import { useLanguage } from '../composables/useLanguage';
 const { resumeData } = useLanguage();
 
-const popCount = ref(0);
-const isPopping = ref(false);
-const audioCtx = ref(null);
+// 3D Tilt Logic
+const card = ref(null);
+const rotation = ref({ x: 0, y: 0 });
+const isHovering = ref(false);
 
-onMounted(() => {
-  const saved = localStorage.getItem('popCount');
-  if (saved) popCount.value = parseInt(saved, 10);
+const handleMouseMove = (e) => {
+  if (!card.value) return;
+
+  const rect = card.value.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
   
-  // Initialize AudioContext on user interaction if needed, 
-  // but we can create it lazily in handlePop to respect autoplay policies
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+  
+  const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
+  const rotateY = ((x - centerX) / centerX) * 10;
+
+  rotation.value = { x: rotateX, y: rotateY };
+};
+
+const handleMouseEnter = () => {
+  isHovering.value = true;
+};
+
+const handleMouseLeave = () => {
+  isHovering.value = false;
+  rotation.value = { x: 0, y: 0 };
+};
+
+const cardStyle = computed(() => {
+  return {
+    transform: `perspective(1000px) rotateX(${rotation.value.x}deg) rotateY(${rotation.value.y}deg) scale3d(1.02, 1.02, 1.02)`,
+    transition: isHovering.value ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'
+  };
 });
-
-const playPopSound = () => {
-  if (!audioCtx.value) {
-    audioCtx.value = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  
-  if (audioCtx.value.state === 'suspended') {
-    audioCtx.value.resume();
-  }
-
-  const oscillator = audioCtx.value.createOscillator();
-  const gainNode = audioCtx.value.createGain();
-
-  oscillator.type = 'sine';
-  // Randomize pitch slightly for fun
-  oscillator.frequency.setValueAtTime(800 + Math.random() * 200, audioCtx.value.currentTime);
-  oscillator.frequency.exponentialRampToValueAtTime(0.01, audioCtx.value.currentTime + 0.15);
-
-  gainNode.gain.setValueAtTime(0.1, audioCtx.value.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.value.currentTime + 0.15);
-
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.value.destination);
-
-  oscillator.start();
-  oscillator.stop(audioCtx.value.currentTime + 0.15);
-};
-
-const handlePop = (e) => {
-  // Prevent default to avoid double-firing on some touch devices if mixed
-  // but usually click is fine.
-  
-  popCount.value++;
-  localStorage.setItem('popCount', popCount.value);
-  
-  isPopping.value = true;
-  setTimeout(() => {
-    isPopping.value = false;
-  }, 100); // 100ms animation
-  
-  playPopSound();
-  
-  // Optional: Add flying particles logic here if desired later
-};
 </script>
 
 <template>
@@ -72,13 +53,19 @@ const handlePop = (e) => {
       </div>
     </div>
     <div class="avatar-container">
-      <div class="pop-wrapper" @mousedown="handlePop" @touchstart.passive="handlePop">
-        <div class="pop-score" :class="{ 'bump': isPopping }">salary + {{ popCount }}</div>
+      <div 
+        class="avatar-card" 
+        ref="card"
+        @mousemove="handleMouseMove"
+        @mouseenter="handleMouseEnter"
+        @mouseleave="handleMouseLeave"
+        :style="cardStyle"
+      >
+        <div class="glow" v-if="isHovering"></div>
         <img 
-          :src="isPopping ? resumeData.profile.avatar_pop : resumeData.profile.avatar" 
+          :src="resumeData.profile.avatar" 
           :alt="resumeData.profile.name" 
           class="avatar" 
-          :class="{ 'popping': isPopping }"
         />
       </div>
     </div>
@@ -190,57 +177,39 @@ h1 {
   display: flex;
   justify-content: center;
   z-index: 2;
+  perspective: 1000px; /* Helper perspective on container */
 }
 
-.pop-wrapper {
+.avatar-card {
   position: relative;
-  cursor: pointer;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.pop-score {
-  position: absolute;
-  top: -40px;
-  width: 100%;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-color);
-  text-shadow: 0 0 10px rgba(66, 184, 131, 0.5);
-  pointer-events: none;
-  transition: transform 0.1s;
-}
-
-.pop-score.bump {
-  transform: scale(1.2);
+  width: 300px; /* Slightly larger container for the effect */
+  height: 300px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  cursor: default; /* No pointer cursor since it's not clickable anymore */
 }
 
 .avatar {
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  /* Minimal glass border */
   border: 1px solid rgba(66, 184, 131, 0.3);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: block;
 }
 
-.avatar.popping {
-  transform: scale(0.95);
-  border-color: var(--primary-color);
-  filter: grayscale(0%);
-}
-
-.avatar:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 40px rgba(66, 184, 131, 0.4);
-}
-
-/* Explicit hover transform only when NOT popping, to avoid conflict */
-.avatar:hover:not(.popping) {
-  transform: scale(1.02);
+/* Optional Glow Effect */
+.glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -271,9 +240,9 @@ h1 {
     justify-content: center;
   }
   
-  .avatar {
-    width: 200px;
-    height: 200px;
+  .avatar-card {
+    width: 220px;
+    height: 220px;
   }
 }
 </style>

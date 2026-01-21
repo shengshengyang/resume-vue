@@ -3,12 +3,13 @@
     "about": "關於我",
     "experience": "工作經歷",
     "skills": "專業技能",
-    "portfolio": "精選專案"
+    "portfolio": "精選專案",
+    "links": "連結"
   },
   "profile": {
-    "name": "楊 竣盛",
-    "role": "創新全端工程師",
-    "bio": "經驗豐富的全端工程師，專注於後端開發與雲端原生架構。從物理治療師成功轉職，我結合了同理心與分析能力來推動創新。顯著成就包括主導從 Node.js 遷移至 Java 的專案，提升了 30% 以上的效能，並使用 Docker、AWS 和 CI/CD 流程開發企業級系統。熱衷於構建符合國際標準並提升使用者體驗的產品。",
+    "name": "楊竣盛",
+    "role": "全端工程師",
+    "bio": "從醫療跨足科技的全端工程師，在醫療業培養的溝通與解決問題的能力，應用在軟體開發上，並持續學習新的技術，目前專注於後端技術與人工智慧的應用，將所學記錄於個人技術部落格中",
     "location": "台中, 台灣",
     "cta_primary": "查看作品",
     "cta_secondary": "工作經歷",
@@ -22,8 +23,9 @@
         "id": 1,
         "role": "資深後端工程師",
         "company": "德安資訊 (Athena Information Systems)",
+        "link": "https://www.athena.com.tw/",
         "period": "2025 - 至今",
-        "description": "將餐廳管理系統從 Node.js 遷移至 Java 的核心貢獻者，效能提升超過 30%，並顯著降低延遲與停機時間。主導 Java 遷移專案，提升系統效能逾 30%。使用 Spring Boot 和 PostgresSQL 開發雲端訂位系統，提升訂位效率 35%。",
+        "description": "餐飲管理系統（FBM）核心開發成員。主導雲端訂位系統的架構設計與開發，顯著提升 35% 訂位處理效率。針對高併發場景下的庫存加減與超賣問題，設計並實作資料庫事務機制，確保負載下的數據一致性與系統穩定性。",
         "projects": [
           {
             "name": "FBM 餐廳管理系統",
@@ -50,13 +52,47 @@
         "id": 2,
         "role": "全端開發工程師",
         "company": "大豐環保科技 (Da Fon Environmental Technology)",
+        "link": "https://www.df-recycle.com/",
         "period": "2022 - 2024",
-        "description": "從初階角色晉升為全端開發者，交付了完整的回收車追蹤系統。使用 Spring Boot 和 Android 開發端對端追蹤系統，提供即時物流洞察。建立簡化工作流程，提升團隊生產力與程式碼品質。"
+        "description": "從初階角色晉升為全端開發者，交付了完整的回收車追蹤系統。使用 Spring Boot 和 Android 開發端對端追蹤系統，提供即時物流洞察。建立簡化工作流程，提升團隊生產力與程式碼品質。",
+        "projects": [
+          {
+            "name": "zCar車輛管理系統",
+            "description": "回收車追蹤系統，使用 Java base android 開發端對端追蹤系統，提供即時物流洞察。",
+            "tech": "Java, Android, Google Geolocation API,",
+            "link": "https://play.google.com/store/apps/details?id=com.zcar.fe.zcar&hl=zh_TW"
+          },
+          {
+            "name": "zCar車輛管理系統後台",
+            "description": "zCar車輛管理系統後台，使用 Java Spring framework 開發後台管理系統，提供即時物流洞察。",
+            "tech": "Java, Spring,",
+            "link": ""
+          },
+          {
+            "name": "zero zero 好回收好生活網頁",
+            "description": "zero zero 好回收好生活網頁，使用 Reacr.js 開發前端網頁，提供回收點數兌換，商品券管理",
+            "tech": "React.js,",
+            "link": "https://www.zerozero.com.tw"
+          },
+          {
+            "name": "zero zero 好回收好生活後台",
+            "description": "zero zero 好回收好生活後台，使用 Java Spring framework 開發後台管理系統，提供即時物流洞察。",
+            "tech": "Java, Spring,",
+            "link": ""
+          },
+          {
+            "name": "zero zero–資源回收，垃圾車環境即時通、z幣環保集點",
+            "description": "zero zero–資源回收，垃圾車環境即時通、z幣環保集點，使用 Java Spring framework 開發後台管理系統，提供即時物流洞察。",
+            "tech": "Java, Android,",
+            "link": "https://play.google.com/store/apps/details?id=com.zerozero.fe&hl=zh_TW"
+          }
+        ]
       },
       {
         "id": 3,
         "role": "物理治療師",
         "company": "醫療院所與個人工作室",
+        "link": "",
         "period": "2016 - 2021",
         "description": "提供客製化物理治療課程，並成功洽談商業合作，展現強大的溝通與客戶關係能力。"
       }
@@ -132,5 +168,29 @@
   },
   "footer": {
     "copyright": "© 2026 Dean Yang. 版權所有。"
+  },
+  "social": {
+    "items": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/shengshengyang",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dean-yang-888888/",
+        "icon": "linkedin"
+      },
+      {
+        "name": "Email",
+        "url": "mailto:sheng.sheng.yang.88@gmail.com",
+        "icon": "email"
+      },
+      {
+        "name": "Blog",
+        "url": "https://dean-yang.gitbook.io/my-learning-notes",
+        "icon": "website"
+      }
+    ]
   }
 }

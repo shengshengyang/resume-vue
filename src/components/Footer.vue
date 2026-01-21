@@ -8,9 +8,15 @@ const { resumeData } = useLanguage();
     <div class="container">
       <p>{{ resumeData.footer.copyright }}</p>
       <div class="social-links">
-        <a :href="`https://${resumeData.profile.github}`" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a :href="`https://${resumeData.profile.linkedin}`" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a :href="`mailto:${resumeData.profile.email}`">Email</a>
+        <a 
+          v-for="link in resumeData.social.items" 
+          :key="link.name"
+          :href="link.url" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          {{ link.name }}
+        </a>
       </div>
     </div>
   </footer>
