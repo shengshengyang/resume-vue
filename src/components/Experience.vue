@@ -1,13 +1,13 @@
 <script setup>
-import { resumeData } from '../data.js';
-const { experience } = resumeData;
+import { useLanguage } from '../composables/useLanguage';
+const { resumeData } = useLanguage();
 </script>
 
 <template>
   <section id="experience" class="experience-section">
-    <h2 class="section-title">Work Experience</h2>
+    <h2 class="section-title">{{ resumeData.experience.title }}</h2>
     <div class="timeline">
-      <div v-for="job in experience" :key="job.id" class="timeline-item">
+      <div v-for="job in resumeData.experience.items" :key="job.id" class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
           <div class="job-header">
@@ -24,39 +24,32 @@ const { experience } = resumeData;
 
 <style scoped>
 .experience-section {
-  padding: 6rem 0;
-  /* background-color: var(--color-background-soft); removed for transparency */
+  padding: 8rem 0;
 }
 
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   color: var(--color-heading);
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .timeline {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  border-left: 2px solid rgba(66, 184, 131, 0.2); /* Base track line */
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--primary-color), transparent);
-}
+/* Optional: "Progress" effect on the line itself if desired, or keep simple track */
 
 .timeline-item {
   position: relative;
-  padding-left: 60px;
-  margin-bottom: 4rem;
+  padding-left: 40px; /* Space for the line */
+  margin-bottom: 3rem;
 }
 
 .timeline-item:last-child {
@@ -64,83 +57,88 @@ const { experience } = resumeData;
 }
 
 .timeline-dot {
+  display: block;
   position: absolute;
-  left: 13px;
-  top: 0;
-  width: 16px;
-  height: 16px;
+  left: -6px; /* Center on the 2px border */
+  top: 35px; /* Aligns with header */
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: var(--color-background);
   border: 2px solid var(--primary-color);
-  box-shadow: 0 0 10px var(--primary-color);
-  z-index: 2;
+  box-shadow: 0 0 10px rgba(66, 184, 131, 0.5);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(66, 184, 131, 0.8);
+  transform: scale(1.3);
 }
 
 .timeline-content {
-  background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-  padding: 2rem;
-  border: 1px solid var(--color-border);
-  border-left: 3px solid var(--primary-color);
-  backdrop-filter: blur(5px);
-  position: relative;
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  padding: 2.5rem;
+  border: var(--glass-border);
+  border-radius: 4px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .timeline-content:hover {
-  transform: translateX(5px);
-  box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
-  border-color: rgba(0, 243, 255, 0.3);
+  transform: translateY(-5px);
+  background-color: rgba(66, 184, 131, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 40px rgba(66, 184, 131, 0.15);
 }
 
 .job-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--color-heading);
   margin: 0;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.1rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.period {
-  font-size: 0.85rem;
-  color: var(--primary-color);
-  background-color: rgba(0, 243, 255, 0.1);
-  padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(0, 243, 255, 0.2);
+  font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-p {
-  line-height: 1.7;
+h4 {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.period {
+  font-size: 0.9rem;
   color: var(--color-text);
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+p {
+  line-height: 1.8;
+  color: var(--color-text);
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 10px;
-  }
-  
   .timeline-item {
-    padding-left: 40px;
-  }
-  
-  .timeline-dot {
-    left: 3px;
+    margin-bottom: 2rem;
   }
 }
 </style>

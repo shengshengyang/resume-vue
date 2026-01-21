@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "about": "關於我",
+    "experience": "工作經歷",
+    "skills": "專業技能",
+    "portfolio": "精選專案"
+  },
+  "profile": {
+    "name": "楊 竣盛",
+    "role": "資深軟體工程師",
+    "bio": "擁有超過 5 年經驗的熱情軟體工程師，專注於建構可擴展的 Web 應用程式並解決複雜問題。致力於整潔代碼、效能優化和以使用者為中心的設計。",
+    "location": "台北, 台灣",
+    "cta_primary": "查看作品",
+    "cta_secondary": "工作經歷",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex"
+  },
+  "experience": {
+    "title": "工作經歷",
+    "items": [
+      {
+        "id": 1,
+        "role": "資深前端開發",
+        "company": "科技解決方案股份有限公司",
+        "period": "2023 - 至今",
+        "description": "帶領前端團隊將舊系統遷移至 Vue 3。提升網站效能 40% 並建立全新的設計系統。"
+      },
+      {
+        "id": 2,
+        "role": "全端工程師",
+        "company": "創新新創",
+        "period": "2020 - 2023",
+        "description": "使用 Node.js 和 React 開發並維護多個客戶端應用程式。與產品經理密切合作，準時交付功能。"
+      }
+    ]
+  },
+  "skills": {
+    "title": "專業技能",
+    "items": [
+      "JavaScript (ES6+)",
+      "Vue.js 3",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "HTML5/CSS3",
+      "Tailwind CSS",
+      "Git",
+      "Docker",
+      "AWS"
+    ]
+  },
+  "portfolio": {
+    "title": "精選專案",
+    "view_btn": "查看專案",
+    "items": [
+      {
+        "id": 1,
+        "title": "電子商務儀表板",
+        "description": "用於管理線上商店庫存和銷售分析的綜合儀表板。",
+        "technologies": ["Vue 3", "Pinia", "Chart.js"],
+        "image": "https://via.placeholder.com/600x400?text=E-Commerce+Dashboard",
+        "link": "#"
+      },
+      {
+        "id": 2,
+        "title": "任務管理應用",
+        "description": "即時協作的任務管理器，讓團隊能有效組織工作流程。",
+        "technologies": ["React", "Firebase", "Material UI"],
+        "image": "https://via.placeholder.com/600x400?text=Task+Manager",
+        "link": "#"
+      },
+      {
+        "id": 3,
+        "title": "天氣預報 API",
+        "description": "從多個來源聚合天氣數據的高效能 RESTful API。",
+        "technologies": ["Node.js", "Express", "Redis"],
+        "image": "https://via.placeholder.com/600x400?text=Weather+API",
+        "link": "#"
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Alex Dev. 版權所有。"
+  }
+}

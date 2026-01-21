@@ -5,12 +5,12 @@ import Experience from './components/Experience.vue'
 import Skills from './components/Skills.vue'
 import Portfolio from './components/Portfolio.vue'
 import Footer from './components/Footer.vue'
-import StarBackground from './components/StarBackground.vue'
+import AmbientBackground from './components/AmbientBackground.vue'
 </script>
 
 <template>
   <div class="app-container">
-    <StarBackground />
+    <AmbientBackground />
     <NavBar />
     <main>
       <div class="content-wrapper">

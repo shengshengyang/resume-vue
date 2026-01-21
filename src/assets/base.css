@@ -1,26 +1,62 @@
 /* Color Palette */
 :root {
-  /* SpaceX Theme Palette */
-  --primary-color: #00f3ff; /* Neon Cyan */
-  --primary-color-dark: #00c2cc;
+  /* Vibrant Vue Theme (Dark Default) */
+  --accent-color: #42b883; /* Vue Green */
+  --primary-color: #42b883;
+  --primary-color-dark: #33a06f;
   --secondary-color: #ffffff;
   
-  --color-background: #000000; /* Deep Space Black */
-  --color-background-soft: #0b0c15; /* Slightly lighter black for cards */
-  --color-background-mute: #1c1c2e;
+  --gradient-text-start: #ffffff; /* White start for dark mode */
   
-  --color-border: #33334d;
-  --color-border-hover: #00f3ff;
+  --color-background: #050505;
+  --color-background-soft: #0a0a0a;
+  --color-background-mute: #1a1a1a;
+  
+  --vignette-color: rgba(0, 0, 0, 0.6); /* Dark vignette */
+  
+  --color-border: rgba(66, 184, 131, 0.2);
+  --color-border-hover: #42b883;
   
   --color-heading: #ffffff;
   --color-text: #e0e0e0;
-  --color-text-light: #a0a0b0;
+  --color-text-light: #a0a0a0;
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   
-  --glass-bg: rgba(11, 12, 21, 0.7);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-  --neon-glow: 0 0 10px rgba(0, 243, 255, 0.5);
+  --glass-bg: rgba(20, 20, 20, 0.75);
+  --glass-border: 1px solid rgba(66, 184, 131, 0.1);
+  --glass-backdrop: blur(20px);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  
+  --neon-glow: 0 0 20px rgba(66, 184, 131, 0.3);
+}
+
+[data-theme="light"] {
+  /* Vibrant Vue Theme (Light) */
+  --primary-color: #42b883;
+  --primary-color-dark: #33a06f;
+  --secondary-color: #000000;
+  
+  --gradient-text-start: #000000; /* Black start for light mode */
+  
+  --color-background: #ffffff; /* Pure White */
+  --color-background-soft: #f8f9fa;
+  --color-background-mute: #f1f1f1;
+  
+  --vignette-color: rgba(255, 255, 255, 0.0); /* No dark vignette in light mode */
+  
+  --color-border: rgba(66, 184, 131, 0.3); /* Stronger border for contrast */
+  --color-border-hover: #42b883;
+  
+  --color-heading: #000000; /* Pure Black for max contrast */
+  --color-text: #333333; /* Dark Grey */
+  --color-text-light: #555555;
+  
+  --glass-bg: rgba(255, 255, 255, 0.9); /* More opaque glass */
+  --glass-border: 1px solid rgba(66, 184, 131, 0.2);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  
+  --neon-glow: 0 0 10px rgba(66, 184, 131, 0.15);
 }
 
 *,

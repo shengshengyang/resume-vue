@@ -1,16 +1,16 @@
 <script setup>
-import { resumeData } from '../data.js';
-const { profile } = resumeData;
+import { useLanguage } from '../composables/useLanguage';
+const { resumeData } = useLanguage();
 </script>
 
 <template>
   <footer class="footer">
     <div class="container">
-      <p>&copy; {{ new Date().getFullYear() }} {{ profile.name }}. All rights reserved.</p>
+      <p>{{ resumeData.footer.copyright }}</p>
       <div class="social-links">
-        <a :href="'https://' + profile.github" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a :href="'https://' + profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a :href="'mailto:' + profile.email">Email</a>
+        <a :href="`https://${resumeData.profile.github}`" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a :href="`https://${resumeData.profile.linkedin}`" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a :href="`mailto:${resumeData.profile.email}`">Email</a>
       </div>
     </div>
   </footer>

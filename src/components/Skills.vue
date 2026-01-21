@@ -1,13 +1,13 @@
 <script setup>
-import { resumeData } from '../data.js';
-const { skills } = resumeData;
+import { useLanguage } from '../composables/useLanguage';
+const { resumeData } = useLanguage();
 </script>
 
 <template>
   <section id="skills" class="skills-section">
-    <h2 class="section-title">Technical Skills</h2>
+    <h2 class="section-title">{{ resumeData.skills.title }}</h2>
     <div class="skills-grid">
-      <div v-for="skill in skills" :key="skill" class="skill-tag">
+      <div v-for="skill in resumeData.skills.items" :key="skill" class="skill-tag">
         {{ skill }}
       </div>
     </div>
@@ -16,40 +16,48 @@ const { skills } = resumeData;
 
 <style scoped>
 .skills-section {
-  padding: 4rem 0;
+  padding: 6rem 0;
 }
 
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   color: var(--color-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .skill-tag {
-  background-color: var(--color-background-mute);
-  padding: 0.6rem 1.4rem;
-  border-radius: 50px;
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  padding: 1rem 2rem;
+  border-radius: 4px; /* Minimal radius */
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   color: var(--color-text);
-  border: 1px solid var(--color-border);
-  transition: all 0.2s;
+  border: var(--glass-border);
+  transition: all 0.3s ease;
+  min-width: 120px;
+  text-align: center;
 }
 
 .skill-tag:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: rgba(66, 184, 131, 0.1);
+  color: var(--primary-color);
   border-color: var(--primary-color);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(66, 184, 131, 0.15);
 }
 </style>
