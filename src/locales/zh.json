@@ -20,23 +20,30 @@
     "items": [
       {
         "id": 1,
-        "role": "資深軟體工程師",
-        "company": "雅典娜資訊系統 (Athena Information Systems)",
+        "role": "資深後端工程師",
+        "company": "德安資訊 (Athena Information Systems)",
         "period": "2025 - 至今",
         "description": "將餐廳管理系統從 Node.js 遷移至 Java 的核心貢獻者，效能提升超過 30%，並顯著降低延遲與停機時間。主導 Java 遷移專案，提升系統效能逾 30%。使用 Spring Boot 和 PostgresSQL 開發雲端訂位系統，提升訂位效率 35%。",
         "projects": [
           {
-            "name": "核心系統遷移",
-            "description": "主導從 Node.js 轉移至 Java Spring Boot 的遷移工程，重構單體架構為微服務，顯著提升系統穩定性。",
-            "tech": "Java, Spring Boot, Docker",
-            "link": "#"
+            "name": "FBM 餐廳管理系統",
+            "description": "從零到一建立已上線訂位商用軟體，設計並實作高併發訂位 API，支援多店鋪與即時庫存扣除。參與資料庫 Schema 設計與查詢優化，並導入緩存機制以應對尖峰流量，確保系統在高負載下的穩定性與資料一致性。",
+            "tech": "PostgreSQL, Java, Spring Boot",
+            "link": ""
           },
           {
-            "name": "雲端訂位 API",
-            "description": "設計並實作高併發訂位 API，支援多店鋪與即時庫存扣除。",
-            "tech": "PostgreSQL, Redis, Kafka",
-            "link": "#"
+            "name": "QRcode 點餐系統",
+            "description": "協助運維既有專案，並進行功能優化與問題修復。",
+            "tech": "Java, Spring Boot, Docker",
+            "link": "https://gourmet.ec-hotel.net/#/ZZATHENA/CT/menu?order_type=FOR_HERE"
+          },
+          {
+            "name": "餐飲自助點餐機",
+            "description": "協助運維既有專案，並進行功能優化與問題修復。",
+            "tech": "Java, Spring Boot, nginx, Docker",
+            "link": ""
           }
+          
         ]
       },
       {
