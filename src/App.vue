@@ -6,13 +6,18 @@ import Skills from './components/Skills.vue'
 import Portfolio from './components/Portfolio.vue'
 import Footer from './components/Footer.vue'
 import AmbientBackground from './components/AmbientBackground.vue'
+import SimpleResume from './components/SimpleResume.vue'
+import { useViewMode } from './composables/useViewMode'
+
+const { isSimpleMode } = useViewMode()
 </script>
 
 <template>
   <div class="app-container">
-    <AmbientBackground />
-    <NavBar />
-    <main>
+    <AmbientBackground v-if="!isSimpleMode" />
+    <NavBar /> <!-- NavBar handles the toggle -->
+    
+    <main v-if="!isSimpleMode">
       <div class="content-wrapper">
         <Hero />
         <Experience />
@@ -20,7 +25,10 @@ import AmbientBackground from './components/AmbientBackground.vue'
         <Portfolio />
       </div>
     </main>
-    <Footer />
+
+    <SimpleResume v-else />
+
+    <Footer v-if="!isSimpleMode" />
   </div>
 </template>
 
