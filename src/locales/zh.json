@@ -1,9 +1,9 @@
 {
   "nav": {
     "about": "關於我",
-    "experience": "工作經歷",
-    "skills": "專業技能",
-    "portfolio": "精選專案",
+    "experience": "經歷",
+    "skills": "技能",
+    "portfolio": "專案",
     "links": "連結"
   },
   "profile": {
@@ -13,8 +13,11 @@
     "location": "台中, 台灣",
     "cta_primary": "查看作品",
     "cta_secondary": "工作經歷",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen"
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGb4w7Q8VdbQg/profile-displayphoto-scale_400_400/B56ZvjglXJHMAg-/0/1769048528857?e=1770854400&v=beta&t=hW4QgwsLEiE-vIn-N2HG4mu284c1Lrgcz5cKXMkSGqg",
+    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen",
+    "phone": "(+886) 930-051-873",
+    "email": "dean.yanggg@gmail.com",
+    "contact_title": "聯絡方式"
   },
   "experience": {
     "title": "工作經歷",
@@ -91,10 +94,10 @@
       {
         "id": 3,
         "role": "物理治療師",
-        "company": "醫療院所與個人工作室",
+        "company": "醫療院所與物理治療所",
         "link": "",
         "period": "2016 - 2021",
-        "description": "提供客製化物理治療課程，並成功洽談商業合作，展現強大的溝通與客戶關係能力。"
+        "description": "提供客製化物理治療課程，並成功洽談商業合作並擔任講師，展現強大的溝通與客戶關係能力。"
       }
     ]
   },
@@ -154,7 +157,7 @@
         "description": "開發穩健的後端 API 用於嬰兒發展追蹤應用，功能包含使用者管理、里程碑追蹤與動態報告生成。",
         "technologies": ["Java", "Spring Boot", "MySQL", "Docker"],
         "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
-        "link": "#"
+        "link": "https://github.com/shengshengyang/baby-development-backend"
       },
       {
         "id": 3,
@@ -162,7 +165,7 @@
         "description": "利用 Kafka 進行資料處理，建構即時打卡追蹤系統，提供可擴展且可靠的工時管理。",
         "technologies": ["Java", "Spring", "Kafka"],
         "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-        "link": "#"
+        "link": "https://github.com/shengshengyang/clockin"
       }
     ]
   },
@@ -178,17 +181,12 @@
       },
       {
         "name": "LinkedIn",
-        "url": "https://www.linkedin.com/in/dean-yang-888888/",
+        "url": "https://www.linkedin.com/in/%E7%AB%A3%E7%9B%9B-%E6%A5%8A-a84338258",
         "icon": "linkedin"
       },
       {
-        "name": "Email",
-        "url": "mailto:sheng.sheng.yang.88@gmail.com",
-        "icon": "email"
-      },
-      {
         "name": "Blog",
-        "url": "https://dean-yang.gitbook.io/my-learning-notes",
+        "url": "https://blog.deanyang.it.com",
         "icon": "website"
       }
     ]

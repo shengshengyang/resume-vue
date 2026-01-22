@@ -13,8 +13,11 @@
     "location": "Taichung, Taiwan",
     "cta_primary": "View Portfolio",
     "cta_secondary": "Work Experience",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen"
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGb4w7Q8VdbQg/profile-displayphoto-scale_400_400/B56ZvjglXJHMAg-/0/1769048528857?e=1770854400&v=beta&t=hW4QgwsLEiE-vIn-N2HG4mu284c1Lrgcz5cKXMkSGqg",
+    "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen",
+    "phone": "(+886) 930-051-873",
+    "email": "dean.yanggg@gmail.com",
+    "contact_title": "Contact Me"
   },
   "experience": {
     "title": "Work Experience",
@@ -153,7 +156,7 @@
         "description": "Developed robust backend APIs for a baby development tracking application, featuring user management, milestone tracking, and dynamic report generation.",
         "technologies": ["Java", "Spring Boot", "MySQL", "Docker"],
         "image": "https://github.com/shengshengyang/baby-development-frontend-quasar/blob/master/src/assets/baby-icon.png?raw=true",
-        "link": "#"
+        "link": "https://github.com/shengshengyang/baby-development-backend"
       },
       {
         "id": 3,
@@ -161,7 +164,7 @@
         "description": "Built a real-time clock-in tracking system using Kafka for data processing, providing scalable and reliable working hours management.",
         "technologies": ["Java", "Spring", "Kafka"],
         "image": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-        "link": "#"
+        "link": "https://github.com/shengshengyang/clockin"
       }
     ]
   },
@@ -179,11 +182,6 @@
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/dean-yang-888888/",
         "icon": "linkedin"
-      },
-      {
-        "name": "Email",
-        "url": "mailto:sheng.sheng.yang.88@gmail.com",
-        "icon": "email"
       },
       {
         "name": "Blog",

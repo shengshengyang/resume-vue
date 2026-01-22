@@ -39,6 +39,14 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
 
+const handleLanguageSwitch = () => {
+  toggleLanguage();
+  isNavbarHidden.value = false;
+  // Sync last scroll position to avoid 'jump' to hidden state if layout shifts
+  lastScrollPosition.value = window.scrollY || document.documentElement.scrollTop;
+};
+
+
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
@@ -68,7 +76,7 @@ onUnmounted(() => {
             </ul>
           </li>
         </ul>
-        <button @click="toggleLanguage" class="lang-toggle">
+        <button @click="handleLanguageSwitch" class="lang-toggle">
           {{ currentLang === 'en' ? '中' : 'EN' }}
         </button>
         <button @click="toggleTheme" class="theme-toggle" :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'">

@@ -6,7 +6,12 @@ const { resumeData } = useLanguage();
 <template>
   <footer class="footer">
     <div class="container">
-      <p>{{ resumeData.footer.copyright }}</p>
+      <div class="contact-direct">
+        <span>{{ resumeData.profile.phone }}</span>
+        <span class="separator">|</span>
+        <a :href="`mailto:${resumeData.profile.email}`">{{ resumeData.profile.email }}</a>
+      </div>
+
       <div class="social-links">
         <a 
           v-for="link in resumeData.social.items" 
@@ -18,6 +23,8 @@ const { resumeData } = useLanguage();
           {{ link.name }}
         </a>
       </div>
+
+      <p>{{ resumeData.footer.copyright }}</p>
     </div>
   </footer>
 </template>
@@ -39,6 +46,7 @@ const { resumeData } = useLanguage();
   padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center; /* Ensure horizontal centering */
   gap: 1.5rem;
 }
 
@@ -46,6 +54,31 @@ const { resumeData } = useLanguage();
   color: var(--color-text-light);
   font-size: 0.9rem;
   opacity: 0.8;
+}
+
+.contact-direct {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  opacity: 0.9;
+  /* Removed specific margins, relying on container gap */
+}
+
+.contact-direct a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-direct a:hover {
+  color: var(--primary-color);
+}
+
+.separator {
+  opacity: 0.5;
 }
 
 .social-links {
