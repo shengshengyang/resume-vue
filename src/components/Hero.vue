@@ -74,6 +74,27 @@ const toggleFlip = () => {
   isFlipped.value = !isFlipped.value;
   playPopSound();
 };
+
+const parsedBio = computed(() => {
+  const bio = resumeData.value.profile.bio;
+  // Dynamic lookup for the blog link from social items
+  const blogItem = resumeData.value.social.items.find(item => item.name === 'Blog');
+  const link = blogItem ? blogItem.url : '#'; 
+  
+  const linkHtml = `<a href="${link}" target="_blank" class="blog-link">`;
+  
+  // Match longer phrases first to avoid partial replacements
+  if (bio.includes('personal technical blog')) {
+    return bio.replace('personal technical blog', `${linkHtml}personal technical blog</a>`);
+  } else if (bio.includes('個人技術部落格')) {
+    return bio.replace('個人技術部落格', `${linkHtml}個人技術部落格</a>`);
+  } else if (bio.includes('blog')) {
+    return bio.replace('blog', `${linkHtml}blog</a>`);
+  } else if (bio.includes('部落格')) {
+    return bio.replace('部落格', `${linkHtml}部落格</a>`);
+  }
+  return bio;
+});
 </script>
 
 <template>
@@ -81,7 +102,7 @@ const toggleFlip = () => {
     <div class="content">
       <h1><span class="highlight">{{ resumeData.profile.name }}</span></h1>
       <h2 class="role">{{ resumeData.profile.role }}</h2>
-      <p class="bio">{{ resumeData.profile.bio }}</p>
+      <p class="bio" v-html="parsedBio"></p>
       <div class="actions">
         <a href="#portfolio" class="btn primary">{{ resumeData.profile.cta_primary }}</a>
         <a href="#experience" class="btn secondary">{{ resumeData.profile.cta_secondary }}</a>
@@ -412,5 +433,35 @@ h1 {
 :global([data-theme="dark"]) .coin {
   box-shadow: 0 20px 60px rgba(66, 184, 131, 0.3);
   border-color: rgba(66, 184, 131, 0.4);
+}
+
+/* Deep selector for v-html content */
+:deep(.blog-link) {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  animation: pulse 2s infinite;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+:deep(.blog-link:hover) {
+  background-color: rgba(66, 184, 131, 0.1);
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0% {
+    text-shadow: 0 0 0 rgba(66, 184, 131, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(66, 184, 131, 0.8), 0 0 20px rgba(66, 184, 131, 0.4);
+    transform: scale(1.02);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(66, 184, 131, 0.4);
+  }
 }
 </style>

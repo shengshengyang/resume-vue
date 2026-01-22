@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import { useLanguage } from '../composables/useLanguage';
+import { useViewMode } from '../composables/useViewMode';
 
 const { resumeData, toggleLanguage, currentLang } = useLanguage();
+const { isSimpleMode, toggleViewMode } = useViewMode();
 
 const isDark = ref(true);
 const isNavbarHidden = ref(false);
@@ -58,7 +60,7 @@ onUnmounted(() => {
       <!-- Logo removed as requested -->
       <div class="nav-placeholder"></div>
       <div class="nav-right">
-        <ul class="nav-links">
+        <ul class="nav-links" v-if="!isSimpleMode">
           <li><a href="#about">{{ resumeData.nav.about }}</a></li>
           <li><a href="#experience">{{ resumeData.nav.experience }}</a></li>
           <li><a href="#skills">{{ resumeData.nav.skills }}</a></li>
@@ -76,6 +78,11 @@ onUnmounted(() => {
             </ul>
           </li>
         </ul>
+        
+        <button @click="toggleViewMode" class="mode-toggle" :title="isSimpleMode ? 'Switch to interactive' : 'Switch to list view'">
+           {{ isSimpleMode ? '✨' : '📄' }}
+        </button>
+
         <button @click="handleLanguageSwitch" class="lang-toggle">
           {{ currentLang === 'en' ? '中' : 'EN' }}
         </button>
@@ -143,6 +150,25 @@ onUnmounted(() => {
   width: 36px; /* Fixed width to prevent jump */
   height: 36px;
   border: 1px solid transparent;
+}
+
+.mode-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 .lang-toggle:hover {
