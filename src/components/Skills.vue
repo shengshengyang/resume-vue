@@ -6,25 +6,25 @@ const { resumeData } = useLanguage();
 <template>
   <section id="skills" class="skills-section">
     <h2 class="section-title">{{ resumeData.skills.title }}</h2>
-    <div class="skills-grid">
-      <div v-for="skill in resumeData.skills.items" :key="skill" class="skill-tag">
+    <div class="skills-grid" role="list">
+      <div v-for="skill in resumeData.skills.items" :key="skill" class="skill-tag" role="listitem">
         {{ skill }}
       </div>
     </div>
-    
+
     <div v-if="resumeData.skills.certifications" class="certifications-container">
       <h3 class="subsection-title">{{ resumeData.skills.certifications_title }}</h3>
       <div class="certs-grid">
-        <a 
-          v-for="cert in resumeData.skills.certifications" 
-          :key="cert.name" 
-          :href="cert.link" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          v-for="cert in resumeData.skills.certifications"
+          :key="cert.name"
+          :href="cert.link"
+          target="_blank"
+          rel="noopener noreferrer"
           class="cert-card"
         >
           <div class="cert-image">
-            <img :src="cert.image" :alt="cert.name" />
+            <img :src="cert.image" :alt="`${cert.name} certification by ${cert.issuer}`" loading="lazy" />
           </div>
           <div class="cert-info">
             <h4>{{ cert.name }}</h4>
@@ -70,9 +70,10 @@ const { resumeData } = useLanguage();
   letter-spacing: 0.5px;
   color: var(--color-text);
   border: var(--glass-border);
-  transition: all 0.3s ease;
+  transition: all var(--duration-normal) ease;
   min-width: 120px;
   text-align: center;
+  cursor: default;
 }
 
 .skill-tag:hover {
@@ -116,8 +117,9 @@ const { resumeData } = useLanguage();
   align-items: center;
   gap: 1.5rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all var(--duration-normal) ease;
   width: 280px;
+  cursor: pointer;
 }
 
 .cert-card:hover {

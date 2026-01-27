@@ -7,29 +7,27 @@ const { resumeData } = useLanguage();
   <section id="experience" class="experience-section">
     <h2 class="section-title">{{ resumeData.experience.title }}</h2>
     <div class="timeline">
-      <div v-for="job in resumeData.experience.items" :key="job.id" class="timeline-item">
-        <div class="timeline-dot"></div>
+      <article v-for="job in resumeData.experience.items" :key="job.id" class="timeline-item">
+        <div class="timeline-dot" aria-hidden="true"></div>
         <div class="timeline-content">
-          <div class="job-header">
+          <header class="job-header">
             <h3>{{ job.role }}</h3>
-            <span class="period">{{ job.period }}</span>
-          </div>
+            <time class="period" :datetime="job.period">{{ job.period }}</time>
+          </header>
           <div class="company-header">
-            <template v-if="job.link">
-              <a :href="job.link" target="_blank" rel="noopener noreferrer" class="company-link">
-                <h4 class="company-name">{{ job.company }} <span class="external-icon">↗</span></h4>
-              </a>
-            </template>
+            <a v-if="job.link" :href="job.link" target="_blank" rel="noopener noreferrer" class="company-link">
+              <h4 class="company-name">{{ job.company }} <span class="external-icon" aria-hidden="true">↗</span></h4>
+            </a>
             <h4 v-else class="company-name">{{ job.company }}</h4>
           </div>
           <p>{{ job.description }}</p>
-          
+
           <div v-if="job.projects && job.projects.length" class="experience-projects">
             <div v-for="project in job.projects" :key="project.name" class="project-item">
               <div class="project-header">
-                <span class="project-bullet">▹</span>
+                <span class="project-bullet" aria-hidden="true">▹</span>
                 <a v-if="project.link" :href="project.link" target="_blank" rel="noopener noreferrer" class="project-name link">
-                  {{ project.name }} <span class="link-icon">↗</span>
+                  {{ project.name }} <span class="link-icon" aria-hidden="true">↗</span>
                 </a>
                 <span v-else class="project-name">{{ project.name }}</span>
                 <span v-if="project.tech" class="project-tech">({{ project.tech }})</span>
@@ -38,7 +36,7 @@ const { resumeData } = useLanguage();
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </template>
@@ -88,7 +86,8 @@ const { resumeData } = useLanguage();
   background-color: var(--color-background);
   border: 2px solid var(--primary-color);
   box-shadow: 0 0 10px rgba(66, 184, 131, 0.5);
-  transition: all 0.3s ease;
+  transition: all var(--duration-normal) ease;
+  will-change: transform, background-color;
 }
 
 .timeline-item:hover .timeline-dot {
@@ -103,7 +102,8 @@ const { resumeData } = useLanguage();
   padding: 2.5rem;
   border: var(--glass-border);
   border-radius: 4px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform var(--duration-normal) ease, box-shadow var(--duration-normal) ease, background-color var(--duration-normal) ease;
+  cursor: default;
 }
 
 .timeline-content:hover {
@@ -195,7 +195,8 @@ p {
 .project-name.link {
   text-decoration: none;
   border-bottom: 1px dotted var(--primary-color);
-  transition: all 0.2s;
+  transition: all var(--duration-fast) ease;
+  cursor: pointer;
 }
 
 .project-name.link:hover {
@@ -230,10 +231,11 @@ p {
 .company-link {
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
 }
 
 .company-link .company-name {
-  transition: color 0.3s ease;
+  transition: color var(--duration-normal) ease;
 }
 
 .company-link:hover .company-name {
@@ -244,7 +246,7 @@ p {
   font-size: 0.8em;
   margin-left: 0.5rem;
   opacity: 0.5;
-  transition: all 0.3s ease;
+  transition: all var(--duration-normal) ease;
   vertical-align: middle;
   display: inline-block;
 }
