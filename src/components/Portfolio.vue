@@ -7,13 +7,11 @@ const { resumeData } = useLanguage();
   <section id="portfolio" class="portfolio-section">
     <h2 class="section-title">{{ resumeData.portfolio.title }}</h2>
     <div class="projects-grid">
-      <article v-for="project in resumeData.portfolio.items" :key="project.id" class="project-card">
+      <div v-for="project in resumeData.portfolio.items" :key="project.id" class="project-card">
         <div class="project-image">
-          <img :src="project.image" :alt="project.title" loading="lazy" />
+          <img :src="project.image" :alt="project.title" />
           <div class="overlay">
-            <a :href="project.link" target="_blank" rel="noopener noreferrer" class="view-btn">
-              {{ resumeData.portfolio.view_btn }} <span class="btn-icon" aria-hidden="true">→</span>
-            </a>
+            <a :href="project.link" target="_blank" rel="noopener noreferrer" class="view-btn">{{ resumeData.portfolio.view_btn }}</a>
           </div>
         </div>
         <div class="project-content">
@@ -23,7 +21,7 @@ const { resumeData } = useLanguage();
             <span v-for="tech in project.technologies" :key="tech" class="tag">{{ tech }}</span>
           </div>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 </template>
@@ -57,11 +55,10 @@ const { resumeData } = useLanguage();
   border: var(--glass-border);
   border-radius: 4px;
   overflow: hidden;
-  transition: all var(--duration-normal) ease;
+  transition: all 0.4s ease;
   position: relative;
   display: flex;
   flex-direction: column;
-  cursor: default;
 }
 
 .project-card:hover {
@@ -82,8 +79,7 @@ const { resumeData } = useLanguage();
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--duration-slow) ease;
-  will-change: transform;
+  transition: transform 0.6s ease;
 }
 
 .project-card:hover .project-image img {
@@ -101,7 +97,7 @@ const { resumeData } = useLanguage();
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity var(--duration-normal) ease;
+  transition: opacity 0.3s ease;
 }
 
 .project-card:hover .overlay {
@@ -117,24 +113,12 @@ const { resumeData } = useLanguage();
   text-transform: uppercase;
   letter-spacing: 1px;
   transform: translateY(10px);
-  transition: transform var(--duration-normal) ease;
+  transition: transform 0.3s ease;
   border-radius: 2px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
 }
 
 .project-card:hover .view-btn {
   transform: translateY(0);
-}
-
-.btn-icon {
-  transition: transform var(--duration-normal) ease;
-}
-
-.view-btn:hover .btn-icon {
-  transform: translateX(4px);
 }
 
 .project-content {
@@ -177,6 +161,5 @@ p {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 2px;
-  cursor: default;
 }
 </style>

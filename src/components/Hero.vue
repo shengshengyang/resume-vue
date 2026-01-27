@@ -110,32 +110,27 @@ const parsedBio = computed(() => {
     </div>
     <div class="avatar-container">
       <!-- Wrapper handles the 3D Tilt (Mouse Follow) -->
-      <div
+      <div 
         class="coin-wrapper"
         ref="card"
         @mousemove="handleMouseMove"
         @mouseenter="handleMouseEnter"
         @mouseleave="handleMouseLeave"
         :style="wrapperStyle"
-        role="button"
-        :aria-label="isFlipped ? 'Show avatar' : 'Show contact information'"
-        tabindex="0"
-        @keydown.enter="toggleFlip"
-        @keydown.space.prevent="toggleFlip"
       >
         <!-- Coin handles the Click Flip -->
-        <div
-          class="coin"
+        <div 
+          class="coin" 
           :class="{ 'flipped': isFlipped }"
           @click="toggleFlip"
         >
           <!-- Front: Avatar -->
           <div class="coin-face front">
-            <div class="glow" v-if="isHovering" aria-hidden="true"></div>
-            <img
-              :src="resumeData.profile.avatar"
-              :alt="`${resumeData.profile.name} - ${resumeData.profile.role}`"
-              class="avatar"
+            <div class="glow" v-if="isHovering"></div>
+            <img 
+              :src="resumeData.profile.avatar" 
+              :alt="resumeData.profile.name" 
+              class="avatar" 
             />
           </div>
           <!-- Back: Contact Info -->
@@ -243,14 +238,9 @@ h1 {
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 1px;
-  transition: all var(--duration-normal) ease;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  cursor: pointer;
 }
 
 .btn.primary {
@@ -302,7 +292,7 @@ h1 {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform var(--duration-slow) cubic-bezier(0.4, 0.2, 0.2, 1.1);
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1.1);
   transform-style: preserve-3d;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
@@ -323,7 +313,6 @@ h1 {
   border: 1px solid rgba(66, 184, 131, 0.3);
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  will-change: transform;
 }
 
 .front {
@@ -372,7 +361,7 @@ h1 {
   color: var(--color-text);
   text-decoration: none;
   font-weight: 500;
-  transition: color var(--duration-normal) ease;
+  transition: color 0.3s;
 }
 
 .contact-item a:hover {
@@ -455,19 +444,12 @@ h1 {
   animation: pulse 2s infinite;
   padding: 0 0.3rem;
   border-radius: 4px;
-  transition: all var(--duration-normal) ease;
+  transition: all 0.3s ease;
 }
 
 :deep(.blog-link:hover) {
   background-color: rgba(66, 184, 131, 0.1);
   transform: scale(1.1);
-}
-
-/* Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  :deep(.blog-link) {
-    animation: none;
-  }
 }
 
 @keyframes pulse {
