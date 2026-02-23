@@ -13,7 +13,7 @@
     "location": "台中, 台灣",
     "cta_primary": "查看作品",
     "cta_secondary": "工作經歷",
-    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGb4w7Q8VdbQg/profile-displayphoto-scale_400_400/B56ZvjglXJHMAg-/0/1769048528857?e=1770854400&v=beta&t=hW4QgwsLEiE-vIn-N2HG4mu284c1Lrgcz5cKXMkSGqg",
+    "avatar": "@/assets/head.jpg",
     "avatar_pop": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex&mouth=screamOpen",
     "phone": "(+886) 930-051-873",
     "email": "dean.yanggg@gmail.com",
